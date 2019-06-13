@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.CgyfpbMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.Cgyfpb" >
+    <constructor >
+      <idArg column="code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_ssgcu" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_itmsgrp" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_cgy" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, u_ssgcu, u_itmsgrp, u_code, u_cgy
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from cgyfpb
+    where code = #{code,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from cgyfpb
+    where code = #{code,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.Cgyfpb" >
+    insert into cgyfpb (code, u_ssgcu, u_itmsgrp, 
+      u_code, u_cgy)
+    values (#{code,jdbcType=VARCHAR}, #{uSsgcu,jdbcType=VARCHAR}, #{uItmsgrp,jdbcType=VARCHAR}, 
+      #{uCode,jdbcType=VARCHAR}, #{uCgy,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.Cgyfpb" >
+    insert into cgyfpb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="uSsgcu != null" >
+        u_ssgcu,
+      </if>
+      <if test="uItmsgrp != null" >
+        u_itmsgrp,
+      </if>
+      <if test="uCode != null" >
+        u_code,
+      </if>
+      <if test="uCgy != null" >
+        u_cgy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="uSsgcu != null" >
+        #{uSsgcu,jdbcType=VARCHAR},
+      </if>
+      <if test="uItmsgrp != null" >
+        #{uItmsgrp,jdbcType=VARCHAR},
+      </if>
+      <if test="uCode != null" >
+        #{uCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uCgy != null" >
+        #{uCgy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.Cgyfpb" >
+    update cgyfpb
+    <set >
+      <if test="uSsgcu != null" >
+        u_ssgcu = #{uSsgcu,jdbcType=VARCHAR},
+      </if>
+      <if test="uItmsgrp != null" >
+        u_itmsgrp = #{uItmsgrp,jdbcType=VARCHAR},
+      </if>
+      <if test="uCode != null" >
+        u_code = #{uCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uCgy != null" >
+        u_cgy = #{uCgy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.Cgyfpb" >
+    update cgyfpb
+    set u_ssgcu = #{uSsgcu,jdbcType=VARCHAR},
+      u_itmsgrp = #{uItmsgrp,jdbcType=VARCHAR},
+      u_code = #{uCode,jdbcType=VARCHAR},
+      u_cgy = #{uCgy,jdbcType=VARCHAR}
+    where code = #{code,jdbcType=VARCHAR}
+  </update>
+</mapper>

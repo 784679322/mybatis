@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.QuotaMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.Quota" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="itemcode" property="itemcode" jdbcType="VARCHAR" />
+    <result column="cardcode" property="cardcode" jdbcType="VARCHAR" />
+    <result column="proportion" property="proportion" jdbcType="NUMERIC" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, itemcode, cardcode, proportion
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from quota
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from quota
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.Quota" >
+    insert into quota (id, itemcode, cardcode, 
+      proportion)
+    values (#{id,jdbcType=INTEGER}, #{itemcode,jdbcType=VARCHAR}, #{cardcode,jdbcType=VARCHAR}, 
+      #{proportion,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.Quota" >
+    insert into quota
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="itemcode != null" >
+        itemcode,
+      </if>
+      <if test="cardcode != null" >
+        cardcode,
+      </if>
+      <if test="proportion != null" >
+        proportion,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="itemcode != null" >
+        #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardcode != null" >
+        #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="proportion != null" >
+        #{proportion,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.Quota" >
+    update quota
+    <set >
+      <if test="itemcode != null" >
+        itemcode = #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardcode != null" >
+        cardcode = #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="proportion != null" >
+        proportion = #{proportion,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.Quota" >
+    update quota
+    set itemcode = #{itemcode,jdbcType=VARCHAR},
+      cardcode = #{cardcode,jdbcType=VARCHAR},
+      proportion = #{proportion,jdbcType=NUMERIC}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

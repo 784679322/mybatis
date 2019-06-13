@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.ItemGrpCardsMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.ItemGrpCards" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="cardcode" property="cardcode" jdbcType="VARCHAR" />
+    <result column="cardname" property="cardname" jdbcType="VARCHAR" />
+    <result column="yearlevel" property="yearlevel" jdbcType="VARCHAR" />
+    <result column="grpname" property="grpname" jdbcType="VARCHAR" />
+    <result column="grpcode" property="grpcode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cardcode, cardname, yearlevel, grpname, grpcode
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from itemgrpcards
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from itemgrpcards
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.ItemGrpCards" >
+    insert into itemgrpcards (id, cardcode, cardname, 
+      yearlevel, grpname, grpcode
+      )
+    values (#{id,jdbcType=INTEGER}, #{cardcode,jdbcType=VARCHAR}, #{cardname,jdbcType=VARCHAR}, 
+      #{yearlevel,jdbcType=VARCHAR}, #{grpname,jdbcType=VARCHAR}, #{grpcode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.ItemGrpCards" >
+    insert into itemgrpcards
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cardcode != null" >
+        cardcode,
+      </if>
+      <if test="cardname != null" >
+        cardname,
+      </if>
+      <if test="yearlevel != null" >
+        yearlevel,
+      </if>
+      <if test="grpname != null" >
+        grpname,
+      </if>
+      <if test="grpcode != null" >
+        grpcode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cardcode != null" >
+        #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardname != null" >
+        #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="yearlevel != null" >
+        #{yearlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="grpname != null" >
+        #{grpname,jdbcType=VARCHAR},
+      </if>
+      <if test="grpcode != null" >
+        #{grpcode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.ItemGrpCards" >
+    update itemgrpcards
+    <set >
+      <if test="cardcode != null" >
+        cardcode = #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardname != null" >
+        cardname = #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="yearlevel != null" >
+        yearlevel = #{yearlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="grpname != null" >
+        grpname = #{grpname,jdbcType=VARCHAR},
+      </if>
+      <if test="grpcode != null" >
+        grpcode = #{grpcode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.ItemGrpCards" >
+    update itemgrpcards
+    set cardcode = #{cardcode,jdbcType=VARCHAR},
+      cardname = #{cardname,jdbcType=VARCHAR},
+      yearlevel = #{yearlevel,jdbcType=VARCHAR},
+      grpname = #{grpname,jdbcType=VARCHAR},
+      grpcode = #{grpcode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.RateMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.Rate" >
+    <id column="ratedate" property="ratedate" jdbcType="DATE" />
+    <id column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="rate" property="rate" jdbcType="VARCHAR" />
+    <result column="datadource" property="datadource" jdbcType="CHAR" />
+    <result column="usersign" property="usersign" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ratedate, currency, rate, datadource, usersign
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.chinajey.admin.dao.entity.RateKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from rate
+    where ratedate = #{ratedate,jdbcType=DATE}
+      and currency = #{currency,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.RateKey" >
+    delete from rate
+    where ratedate = #{ratedate,jdbcType=DATE}
+      and currency = #{currency,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.Rate" >
+    insert into rate (ratedate, currency, rate, 
+      datadource, usersign)
+    values (#{ratedate,jdbcType=DATE}, #{currency,jdbcType=VARCHAR}, #{rate,jdbcType=VARCHAR}, 
+      #{datadource,jdbcType=CHAR}, #{usersign,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.Rate" >
+    insert into rate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ratedate != null" >
+        ratedate,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="rate != null" >
+        rate,
+      </if>
+      <if test="datadource != null" >
+        datadource,
+      </if>
+      <if test="usersign != null" >
+        usersign,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ratedate != null" >
+        #{ratedate,jdbcType=DATE},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null" >
+        #{rate,jdbcType=VARCHAR},
+      </if>
+      <if test="datadource != null" >
+        #{datadource,jdbcType=CHAR},
+      </if>
+      <if test="usersign != null" >
+        #{usersign,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.Rate" >
+    update rate
+    <set >
+      <if test="rate != null" >
+        rate = #{rate,jdbcType=VARCHAR},
+      </if>
+      <if test="datadource != null" >
+        datadource = #{datadource,jdbcType=CHAR},
+      </if>
+      <if test="usersign != null" >
+        usersign = #{usersign,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ratedate = #{ratedate,jdbcType=DATE}
+      and currency = #{currency,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.Rate" >
+    update rate
+    set rate = #{rate,jdbcType=VARCHAR},
+      datadource = #{datadource,jdbcType=CHAR},
+      usersign = #{usersign,jdbcType=VARCHAR}
+    where ratedate = #{ratedate,jdbcType=DATE}
+      and currency = #{currency,jdbcType=VARCHAR}
+  </update>
+</mapper>

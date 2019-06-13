@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.MaterielMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.Materiel" >
+    <constructor >
+      <idArg column="itemcode" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="itemname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="itmsgrpcod" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="prchseitem" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sellitem" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="invntitem" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dfltwh" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="buyunitmsr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="salunitmsr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="vatgrouppu" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="vatgroupsa" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="validfor" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="validcomm" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sww" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="glmethod" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bywh" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="itemtype" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="issuemthd" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="mngmethod" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="invntryuom" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="planingsys" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="prcrmntmtd" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_sc001" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_sc002" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_sc005" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_z20_drno" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_sc014" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_z12_iqc" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_z98_perq" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="u_z09_wl014" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_sc012" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_z16_ctn" jdbcType="NUMERIC" javaType="java.math.BigDecimal" />
+      <arg column="u_z16_hscd" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_z16_hscm" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_z16_hsem" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="c_pro_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pro_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="u_empid" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    itemcode, itemname, itmsgrpcod, prchseitem, sellitem, invntitem, dfltwh, buyunitmsr, 
+    salunitmsr, vatgrouppu, vatgroupsa, validfor, validcomm, sww, glmethod, bywh, itemtype, 
+    issuemthd, mngmethod, invntryuom, planingsys, prcrmntmtd, u_sc001, u_sc002, u_sc005, 
+    u_z20_drno, u_sc014, u_z12_iqc, u_z98_perq, u_z09_wl014, u_sc012, u_z16_ctn, u_z16_hscd, 
+    u_z16_hscm, u_z16_hsem, c_pro_code, pro_code, u_empid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from materiel
+    where itemcode = #{itemcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from materiel
+    where itemcode = #{itemcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.Materiel" >
+    insert into materiel (itemcode, itemname, itmsgrpcod, 
+      prchseitem, sellitem, invntitem, 
+      dfltwh, buyunitmsr, salunitmsr, 
+      vatgrouppu, vatgroupsa, validfor, 
+      validcomm, sww, glmethod, 
+      bywh, itemtype, issuemthd, 
+      mngmethod, invntryuom, planingsys, 
+      prcrmntmtd, u_sc001, u_sc002, 
+      u_sc005, u_z20_drno, u_sc014, 
+      u_z12_iqc, u_z98_perq, u_z09_wl014, 
+      u_sc012, u_z16_ctn, u_z16_hscd, 
+      u_z16_hscm, u_z16_hsem, c_pro_code, 
+      pro_code, u_empid)
+    values (#{itemcode,jdbcType=VARCHAR}, #{itemname,jdbcType=VARCHAR}, #{itmsgrpcod,jdbcType=INTEGER}, 
+      #{prchseitem,jdbcType=VARCHAR}, #{sellitem,jdbcType=VARCHAR}, #{invntitem,jdbcType=VARCHAR}, 
+      #{dfltwh,jdbcType=VARCHAR}, #{buyunitmsr,jdbcType=VARCHAR}, #{salunitmsr,jdbcType=VARCHAR}, 
+      #{vatgrouppu,jdbcType=VARCHAR}, #{vatgroupsa,jdbcType=VARCHAR}, #{validfor,jdbcType=VARCHAR}, 
+      #{validcomm,jdbcType=VARCHAR}, #{sww,jdbcType=VARCHAR}, #{glmethod,jdbcType=VARCHAR}, 
+      #{bywh,jdbcType=VARCHAR}, #{itemtype,jdbcType=VARCHAR}, #{issuemthd,jdbcType=VARCHAR}, 
+      #{mngmethod,jdbcType=VARCHAR}, #{invntryuom,jdbcType=VARCHAR}, #{planingsys,jdbcType=VARCHAR}, 
+      #{prcrmntmtd,jdbcType=VARCHAR}, #{uSc001,jdbcType=VARCHAR}, #{uSc002,jdbcType=VARCHAR}, 
+      #{uSc005,jdbcType=VARCHAR}, #{uZ20Drno,jdbcType=VARCHAR}, #{uSc014,jdbcType=VARCHAR}, 
+      #{uZ12Iqc,jdbcType=VARCHAR}, #{uZ98Perq,jdbcType=NUMERIC}, #{uZ09Wl014,jdbcType=VARCHAR}, 
+      #{uSc012,jdbcType=VARCHAR}, #{uZ16Ctn,jdbcType=NUMERIC}, #{uZ16Hscd,jdbcType=VARCHAR}, 
+      #{uZ16Hscm,jdbcType=VARCHAR}, #{uZ16Hsem,jdbcType=VARCHAR}, #{cProCode,jdbcType=VARCHAR}, 
+      #{proCode,jdbcType=VARCHAR}, #{uEmpid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.Materiel" >
+    insert into materiel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="itemcode != null" >
+        itemcode,
+      </if>
+      <if test="itemname != null" >
+        itemname,
+      </if>
+      <if test="itmsgrpcod != null" >
+        itmsgrpcod,
+      </if>
+      <if test="prchseitem != null" >
+        prchseitem,
+      </if>
+      <if test="sellitem != null" >
+        sellitem,
+      </if>
+      <if test="invntitem != null" >
+        invntitem,
+      </if>
+      <if test="dfltwh != null" >
+        dfltwh,
+      </if>
+      <if test="buyunitmsr != null" >
+        buyunitmsr,
+      </if>
+      <if test="salunitmsr != null" >
+        salunitmsr,
+      </if>
+      <if test="vatgrouppu != null" >
+        vatgrouppu,
+      </if>
+      <if test="vatgroupsa != null" >
+        vatgroupsa,
+      </if>
+      <if test="validfor != null" >
+        validfor,
+      </if>
+      <if test="validcomm != null" >
+        validcomm,
+      </if>
+      <if test="sww != null" >
+        sww,
+      </if>
+      <if test="glmethod != null" >
+        glmethod,
+      </if>
+      <if test="bywh != null" >
+        bywh,
+      </if>
+      <if test="itemtype != null" >
+        itemtype,
+      </if>
+      <if test="issuemthd != null" >
+        issuemthd,
+      </if>
+      <if test="mngmethod != null" >
+        mngmethod,
+      </if>
+      <if test="invntryuom != null" >
+        invntryuom,
+      </if>
+      <if test="planingsys != null" >
+        planingsys,
+      </if>
+      <if test="prcrmntmtd != null" >
+        prcrmntmtd,
+      </if>
+      <if test="uSc001 != null" >
+        u_sc001,
+      </if>
+      <if test="uSc002 != null" >
+        u_sc002,
+      </if>
+      <if test="uSc005 != null" >
+        u_sc005,
+      </if>
+      <if test="uZ20Drno != null" >
+        u_z20_drno,
+      </if>
+      <if test="uSc014 != null" >
+        u_sc014,
+      </if>
+      <if test="uZ12Iqc != null" >
+        u_z12_iqc,
+      </if>
+      <if test="uZ98Perq != null" >
+        u_z98_perq,
+      </if>
+      <if test="uZ09Wl014 != null" >
+        u_z09_wl014,
+      </if>
+      <if test="uSc012 != null" >
+        u_sc012,
+      </if>
+      <if test="uZ16Ctn != null" >
+        u_z16_ctn,
+      </if>
+      <if test="uZ16Hscd != null" >
+        u_z16_hscd,
+      </if>
+      <if test="uZ16Hscm != null" >
+        u_z16_hscm,
+      </if>
+      <if test="uZ16Hsem != null" >
+        u_z16_hsem,
+      </if>
+      <if test="cProCode != null" >
+        c_pro_code,
+      </if>
+      <if test="proCode != null" >
+        pro_code,
+      </if>
+      <if test="uEmpid != null" >
+        u_empid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="itemcode != null" >
+        #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="itemname != null" >
+        #{itemname,jdbcType=VARCHAR},
+      </if>
+      <if test="itmsgrpcod != null" >
+        #{itmsgrpcod,jdbcType=INTEGER},
+      </if>
+      <if test="prchseitem != null" >
+        #{prchseitem,jdbcType=VARCHAR},
+      </if>
+      <if test="sellitem != null" >
+        #{sellitem,jdbcType=VARCHAR},
+      </if>
+      <if test="invntitem != null" >
+        #{invntitem,jdbcType=VARCHAR},
+      </if>
+      <if test="dfltwh != null" >
+        #{dfltwh,jdbcType=VARCHAR},
+      </if>
+      <if test="buyunitmsr != null" >
+        #{buyunitmsr,jdbcType=VARCHAR},
+      </if>
+      <if test="salunitmsr != null" >
+        #{salunitmsr,jdbcType=VARCHAR},
+      </if>
+      <if test="vatgrouppu != null" >
+        #{vatgrouppu,jdbcType=VARCHAR},
+      </if>
+      <if test="vatgroupsa != null" >
+        #{vatgroupsa,jdbcType=VARCHAR},
+      </if>
+      <if test="validfor != null" >
+        #{validfor,jdbcType=VARCHAR},
+      </if>
+      <if test="validcomm != null" >
+        #{validcomm,jdbcType=VARCHAR},
+      </if>
+      <if test="sww != null" >
+        #{sww,jdbcType=VARCHAR},
+      </if>
+      <if test="glmethod != null" >
+        #{glmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="bywh != null" >
+        #{bywh,jdbcType=VARCHAR},
+      </if>
+      <if test="itemtype != null" >
+        #{itemtype,jdbcType=VARCHAR},
+      </if>
+      <if test="issuemthd != null" >
+        #{issuemthd,jdbcType=VARCHAR},
+      </if>
+      <if test="mngmethod != null" >
+        #{mngmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="invntryuom != null" >
+        #{invntryuom,jdbcType=VARCHAR},
+      </if>
+      <if test="planingsys != null" >
+        #{planingsys,jdbcType=VARCHAR},
+      </if>
+      <if test="prcrmntmtd != null" >
+        #{prcrmntmtd,jdbcType=VARCHAR},
+      </if>
+      <if test="uSc001 != null" >
+        #{uSc001,jdbcType=VARCHAR},
+      </if>
+      <if test="uSc002 != null" >
+        #{uSc002,jdbcType=VARCHAR},
+      </if>
+      <if test="uSc005 != null" >
+        #{uSc005,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ20Drno != null" >
+        #{uZ20Drno,jdbcType=VARCHAR},
+      </if>
+      <if test="uSc014 != null" >
+        #{uSc014,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ12Iqc != null" >
+        #{uZ12Iqc,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ98Perq != null" >
+        #{uZ98Perq,jdbcType=NUMERIC},
+      </if>
+      <if test="uZ09Wl014 != null" >
+        #{uZ09Wl014,jdbcType=VARCHAR},
+      </if>
+      <if test="uSc012 != null" >
+        #{uSc012,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ16Ctn != null" >
+        #{uZ16Ctn,jdbcType=NUMERIC},
+      </if>
+      <if test="uZ16Hscd != null" >
+        #{uZ16Hscd,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ16Hscm != null" >
+        #{uZ16Hscm,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ16Hsem != null" >
+        #{uZ16Hsem,jdbcType=VARCHAR},
+      </if>
+      <if test="cProCode != null" >
+        #{cProCode,jdbcType=VARCHAR},
+      </if>
+      <if test="proCode != null" >
+        #{proCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uEmpid != null" >
+        #{uEmpid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.Materiel" >
+    update materiel
+    <set >
+      <if test="itemname != null" >
+        itemname = #{itemname,jdbcType=VARCHAR},
+      </if>
+      <if test="itmsgrpcod != null" >
+        itmsgrpcod = #{itmsgrpcod,jdbcType=INTEGER},
+      </if>
+      <if test="prchseitem != null" >
+        prchseitem = #{prchseitem,jdbcType=VARCHAR},
+      </if>
+      <if test="sellitem != null" >
+        sellitem = #{sellitem,jdbcType=VARCHAR},
+      </if>
+      <if test="invntitem != null" >
+        invntitem = #{invntitem,jdbcType=VARCHAR},
+      </if>
+      <if test="dfltwh != null" >
+        dfltwh = #{dfltwh,jdbcType=VARCHAR},
+      </if>
+      <if test="buyunitmsr != null" >
+        buyunitmsr = #{buyunitmsr,jdbcType=VARCHAR},
+      </if>
+      <if test="salunitmsr != null" >
+        salunitmsr = #{salunitmsr,jdbcType=VARCHAR},
+      </if>
+      <if test="vatgrouppu != null" >
+        vatgrouppu = #{vatgrouppu,jdbcType=VARCHAR},
+      </if>
+      <if test="vatgroupsa != null" >
+        vatgroupsa = #{vatgroupsa,jdbcType=VARCHAR},
+      </if>
+      <if test="validfor != null" >
+        validfor = #{validfor,jdbcType=VARCHAR},
+      </if>
+      <if test="validcomm != null" >
+        validcomm = #{validcomm,jdbcType=VARCHAR},
+      </if>
+      <if test="sww != null" >
+        sww = #{sww,jdbcType=VARCHAR},
+      </if>
+      <if test="glmethod != null" >
+        glmethod = #{glmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="bywh != null" >
+        bywh = #{bywh,jdbcType=VARCHAR},
+      </if>
+      <if test="itemtype != null" >
+        itemtype = #{itemtype,jdbcType=VARCHAR},
+      </if>
+      <if test="issuemthd != null" >
+        issuemthd = #{issuemthd,jdbcType=VARCHAR},
+      </if>
+      <if test="mngmethod != null" >
+        mngmethod = #{mngmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="invntryuom != null" >
+        invntryuom = #{invntryuom,jdbcType=VARCHAR},
+      </if>
+      <if test="planingsys != null" >
+        planingsys = #{planingsys,jdbcType=VARCHAR},
+      </if>
+      <if test="prcrmntmtd != null" >
+        prcrmntmtd = #{prcrmntmtd,jdbcType=VARCHAR},
+      </if>
+      <if test="uSc001 != null" >
+        u_sc001 = #{uSc001,jdbcType=VARCHAR},
+      </if>
+      <if test="uSc002 != null" >
+        u_sc002 = #{uSc002,jdbcType=VARCHAR},
+      </if>
+      <if test="uSc005 != null" >
+        u_sc005 = #{uSc005,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ20Drno != null" >
+        u_z20_drno = #{uZ20Drno,jdbcType=VARCHAR},
+      </if>
+      <if test="uSc014 != null" >
+        u_sc014 = #{uSc014,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ12Iqc != null" >
+        u_z12_iqc = #{uZ12Iqc,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ98Perq != null" >
+        u_z98_perq = #{uZ98Perq,jdbcType=NUMERIC},
+      </if>
+      <if test="uZ09Wl014 != null" >
+        u_z09_wl014 = #{uZ09Wl014,jdbcType=VARCHAR},
+      </if>
+      <if test="uSc012 != null" >
+        u_sc012 = #{uSc012,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ16Ctn != null" >
+        u_z16_ctn = #{uZ16Ctn,jdbcType=NUMERIC},
+      </if>
+      <if test="uZ16Hscd != null" >
+        u_z16_hscd = #{uZ16Hscd,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ16Hscm != null" >
+        u_z16_hscm = #{uZ16Hscm,jdbcType=VARCHAR},
+      </if>
+      <if test="uZ16Hsem != null" >
+        u_z16_hsem = #{uZ16Hsem,jdbcType=VARCHAR},
+      </if>
+      <if test="cProCode != null" >
+        c_pro_code = #{cProCode,jdbcType=VARCHAR},
+      </if>
+      <if test="proCode != null" >
+        pro_code = #{proCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uEmpid != null" >
+        u_empid = #{uEmpid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where itemcode = #{itemcode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.Materiel" >
+    update materiel
+    set itemname = #{itemname,jdbcType=VARCHAR},
+      itmsgrpcod = #{itmsgrpcod,jdbcType=INTEGER},
+      prchseitem = #{prchseitem,jdbcType=VARCHAR},
+      sellitem = #{sellitem,jdbcType=VARCHAR},
+      invntitem = #{invntitem,jdbcType=VARCHAR},
+      dfltwh = #{dfltwh,jdbcType=VARCHAR},
+      buyunitmsr = #{buyunitmsr,jdbcType=VARCHAR},
+      salunitmsr = #{salunitmsr,jdbcType=VARCHAR},
+      vatgrouppu = #{vatgrouppu,jdbcType=VARCHAR},
+      vatgroupsa = #{vatgroupsa,jdbcType=VARCHAR},
+      validfor = #{validfor,jdbcType=VARCHAR},
+      validcomm = #{validcomm,jdbcType=VARCHAR},
+      sww = #{sww,jdbcType=VARCHAR},
+      glmethod = #{glmethod,jdbcType=VARCHAR},
+      bywh = #{bywh,jdbcType=VARCHAR},
+      itemtype = #{itemtype,jdbcType=VARCHAR},
+      issuemthd = #{issuemthd,jdbcType=VARCHAR},
+      mngmethod = #{mngmethod,jdbcType=VARCHAR},
+      invntryuom = #{invntryuom,jdbcType=VARCHAR},
+      planingsys = #{planingsys,jdbcType=VARCHAR},
+      prcrmntmtd = #{prcrmntmtd,jdbcType=VARCHAR},
+      u_sc001 = #{uSc001,jdbcType=VARCHAR},
+      u_sc002 = #{uSc002,jdbcType=VARCHAR},
+      u_sc005 = #{uSc005,jdbcType=VARCHAR},
+      u_z20_drno = #{uZ20Drno,jdbcType=VARCHAR},
+      u_sc014 = #{uSc014,jdbcType=VARCHAR},
+      u_z12_iqc = #{uZ12Iqc,jdbcType=VARCHAR},
+      u_z98_perq = #{uZ98Perq,jdbcType=NUMERIC},
+      u_z09_wl014 = #{uZ09Wl014,jdbcType=VARCHAR},
+      u_sc012 = #{uSc012,jdbcType=VARCHAR},
+      u_z16_ctn = #{uZ16Ctn,jdbcType=NUMERIC},
+      u_z16_hscd = #{uZ16Hscd,jdbcType=VARCHAR},
+      u_z16_hscm = #{uZ16Hscm,jdbcType=VARCHAR},
+      u_z16_hsem = #{uZ16Hsem,jdbcType=VARCHAR},
+      c_pro_code = #{cProCode,jdbcType=VARCHAR},
+      pro_code = #{proCode,jdbcType=VARCHAR},
+      u_empid = #{uEmpid,jdbcType=VARCHAR}
+    where itemcode = #{itemcode,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.ApplicationMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.Application" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="docentry" property="docentry" jdbcType="VARCHAR" />
+    <result column="applicantid" property="applicantid" jdbcType="VARCHAR" />
+    <result column="applicantname" property="applicantname" jdbcType="VARCHAR" />
+    <result column="departmentid" property="departmentid" jdbcType="VARCHAR" />
+    <result column="departmentname" property="departmentname" jdbcType="VARCHAR" />
+    <result column="appletime" property="appletime" jdbcType="TIMESTAMP" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="ascdepartmentid" property="ascdepartmentid" jdbcType="VARCHAR" />
+    <result column="ascdepartmentname" property="ascdepartmentname" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="NUMERIC" />
+    <result column="explain" property="explain" jdbcType="VARCHAR" />
+    <result column="purchaserid" property="purchaserid" jdbcType="VARCHAR" />
+    <result column="purchasername" property="purchasername" jdbcType="VARCHAR" />
+    <result column="attachment" property="attachment" jdbcType="VARCHAR" />
+    <result column="linenum" property="linenum" jdbcType="VARCHAR" />
+    <result column="detailtype" property="detailtype" jdbcType="VARCHAR" />
+    <result column="itemcode" property="itemcode" jdbcType="VARCHAR" />
+    <result column="itemname" property="itemname" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="NUMERIC" />
+    <result column="avgprice" property="avgprice" jdbcType="NUMERIC" />
+    <result column="lastprice" property="lastprice" jdbcType="NUMERIC" />
+    <result column="purprice" property="purprice" jdbcType="NUMERIC" />
+    <result column="amount" property="amount" jdbcType="NUMERIC" />
+    <result column="inventory" property="inventory" jdbcType="NUMERIC" />
+    <result column="warehousecode" property="warehousecode" jdbcType="VARCHAR" />
+    <result column="warehousename" property="warehousename" jdbcType="VARCHAR" />
+    <result column="cardcode" property="cardcode" jdbcType="VARCHAR" />
+    <result column="cardname" property="cardname" jdbcType="VARCHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="arrivetime" property="arrivetime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="demand" property="demand" jdbcType="VARCHAR" />
+    <result column="manufacturer" property="manufacturer" jdbcType="VARCHAR" />
+    <result column="vat" property="vat" jdbcType="NUMERIC" />
+    <result column="otype" property="otype" jdbcType="VARCHAR" />
+    <result column="vatgroup" property="vatgroup" jdbcType="VARCHAR" />
+    <result column="totalnum" property="totalnum" jdbcType="NUMERIC" />
+    <result column="specialprice" property="specialprice" jdbcType="NUMERIC" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="cancell" property="cancell" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, docentry, applicantid, applicantname, departmentid, departmentname, appletime, 
+    type, ascdepartmentid, ascdepartmentname, money, explain, purchaserid, purchasername, 
+    attachment, linenum, detailtype, itemcode, itemname, num, avgprice, lastprice, purprice, 
+    amount, inventory, warehousecode, warehousename, cardcode, cardname, company, arrivetime, 
+    state, currency, brand, demand, manufacturer, vat, otype, vatgroup, totalnum, specialprice, 
+    remark, cancell
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from application
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from application
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.Application" >
+    insert into application (id, docentry, applicantid, 
+      applicantname, departmentid, departmentname, 
+      appletime, type, ascdepartmentid, 
+      ascdepartmentname, money, explain, 
+      purchaserid, purchasername, attachment, 
+      linenum, detailtype, itemcode, 
+      itemname, num, avgprice, 
+      lastprice, purprice, amount, 
+      inventory, warehousecode, warehousename, 
+      cardcode, cardname, company, 
+      arrivetime, state, currency, 
+      brand, demand, manufacturer, 
+      vat, otype, vatgroup, 
+      totalnum, specialprice, remark, 
+      cancell)
+    values (#{id,jdbcType=INTEGER}, #{docentry,jdbcType=VARCHAR}, #{applicantid,jdbcType=VARCHAR}, 
+      #{applicantname,jdbcType=VARCHAR}, #{departmentid,jdbcType=VARCHAR}, #{departmentname,jdbcType=VARCHAR}, 
+      #{appletime,jdbcType=TIMESTAMP}, #{type,jdbcType=VARCHAR}, #{ascdepartmentid,jdbcType=VARCHAR}, 
+      #{ascdepartmentname,jdbcType=VARCHAR}, #{money,jdbcType=NUMERIC}, #{explain,jdbcType=VARCHAR}, 
+      #{purchaserid,jdbcType=VARCHAR}, #{purchasername,jdbcType=VARCHAR}, #{attachment,jdbcType=VARCHAR}, 
+      #{linenum,jdbcType=VARCHAR}, #{detailtype,jdbcType=VARCHAR}, #{itemcode,jdbcType=VARCHAR}, 
+      #{itemname,jdbcType=VARCHAR}, #{num,jdbcType=NUMERIC}, #{avgprice,jdbcType=NUMERIC}, 
+      #{lastprice,jdbcType=NUMERIC}, #{purprice,jdbcType=NUMERIC}, #{amount,jdbcType=NUMERIC}, 
+      #{inventory,jdbcType=NUMERIC}, #{warehousecode,jdbcType=VARCHAR}, #{warehousename,jdbcType=VARCHAR}, 
+      #{cardcode,jdbcType=VARCHAR}, #{cardname,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, 
+      #{arrivetime,jdbcType=TIMESTAMP}, #{state,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{demand,jdbcType=VARCHAR}, #{manufacturer,jdbcType=VARCHAR}, 
+      #{vat,jdbcType=NUMERIC}, #{otype,jdbcType=VARCHAR}, #{vatgroup,jdbcType=VARCHAR}, 
+      #{totalnum,jdbcType=NUMERIC}, #{specialprice,jdbcType=NUMERIC}, #{remark,jdbcType=VARCHAR}, 
+      #{cancell,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.Application" >
+    insert into application
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="docentry != null" >
+        docentry,
+      </if>
+      <if test="applicantid != null" >
+        applicantid,
+      </if>
+      <if test="applicantname != null" >
+        applicantname,
+      </if>
+      <if test="departmentid != null" >
+        departmentid,
+      </if>
+      <if test="departmentname != null" >
+        departmentname,
+      </if>
+      <if test="appletime != null" >
+        appletime,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="ascdepartmentid != null" >
+        ascdepartmentid,
+      </if>
+      <if test="ascdepartmentname != null" >
+        ascdepartmentname,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="explain != null" >
+        explain,
+      </if>
+      <if test="purchaserid != null" >
+        purchaserid,
+      </if>
+      <if test="purchasername != null" >
+        purchasername,
+      </if>
+      <if test="attachment != null" >
+        attachment,
+      </if>
+      <if test="linenum != null" >
+        linenum,
+      </if>
+      <if test="detailtype != null" >
+        detailtype,
+      </if>
+      <if test="itemcode != null" >
+        itemcode,
+      </if>
+      <if test="itemname != null" >
+        itemname,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="avgprice != null" >
+        avgprice,
+      </if>
+      <if test="lastprice != null" >
+        lastprice,
+      </if>
+      <if test="purprice != null" >
+        purprice,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="inventory != null" >
+        inventory,
+      </if>
+      <if test="warehousecode != null" >
+        warehousecode,
+      </if>
+      <if test="warehousename != null" >
+        warehousename,
+      </if>
+      <if test="cardcode != null" >
+        cardcode,
+      </if>
+      <if test="cardname != null" >
+        cardname,
+      </if>
+      <if test="company != null" >
+        company,
+      </if>
+      <if test="arrivetime != null" >
+        arrivetime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="demand != null" >
+        demand,
+      </if>
+      <if test="manufacturer != null" >
+        manufacturer,
+      </if>
+      <if test="vat != null" >
+        vat,
+      </if>
+      <if test="otype != null" >
+        otype,
+      </if>
+      <if test="vatgroup != null" >
+        vatgroup,
+      </if>
+      <if test="totalnum != null" >
+        totalnum,
+      </if>
+      <if test="specialprice != null" >
+        specialprice,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="cancell != null" >
+        cancell,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="docentry != null" >
+        #{docentry,jdbcType=VARCHAR},
+      </if>
+      <if test="applicantid != null" >
+        #{applicantid,jdbcType=VARCHAR},
+      </if>
+      <if test="applicantname != null" >
+        #{applicantname,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentid != null" >
+        #{departmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentname != null" >
+        #{departmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="appletime != null" >
+        #{appletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="ascdepartmentid != null" >
+        #{ascdepartmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="ascdepartmentname != null" >
+        #{ascdepartmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=NUMERIC},
+      </if>
+      <if test="explain != null" >
+        #{explain,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaserid != null" >
+        #{purchaserid,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasername != null" >
+        #{purchasername,jdbcType=VARCHAR},
+      </if>
+      <if test="attachment != null" >
+        #{attachment,jdbcType=VARCHAR},
+      </if>
+      <if test="linenum != null" >
+        #{linenum,jdbcType=VARCHAR},
+      </if>
+      <if test="detailtype != null" >
+        #{detailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="itemcode != null" >
+        #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="itemname != null" >
+        #{itemname,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=NUMERIC},
+      </if>
+      <if test="avgprice != null" >
+        #{avgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="lastprice != null" >
+        #{lastprice,jdbcType=NUMERIC},
+      </if>
+      <if test="purprice != null" >
+        #{purprice,jdbcType=NUMERIC},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=NUMERIC},
+      </if>
+      <if test="inventory != null" >
+        #{inventory,jdbcType=NUMERIC},
+      </if>
+      <if test="warehousecode != null" >
+        #{warehousecode,jdbcType=VARCHAR},
+      </if>
+      <if test="warehousename != null" >
+        #{warehousename,jdbcType=VARCHAR},
+      </if>
+      <if test="cardcode != null" >
+        #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardname != null" >
+        #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="arrivetime != null" >
+        #{arrivetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="demand != null" >
+        #{demand,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null" >
+        #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="vat != null" >
+        #{vat,jdbcType=NUMERIC},
+      </if>
+      <if test="otype != null" >
+        #{otype,jdbcType=VARCHAR},
+      </if>
+      <if test="vatgroup != null" >
+        #{vatgroup,jdbcType=VARCHAR},
+      </if>
+      <if test="totalnum != null" >
+        #{totalnum,jdbcType=NUMERIC},
+      </if>
+      <if test="specialprice != null" >
+        #{specialprice,jdbcType=NUMERIC},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="cancell != null" >
+        #{cancell,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.Application" >
+    update application
+    <set >
+      <if test="docentry != null" >
+        docentry = #{docentry,jdbcType=VARCHAR},
+      </if>
+      <if test="applicantid != null" >
+        applicantid = #{applicantid,jdbcType=VARCHAR},
+      </if>
+      <if test="applicantname != null" >
+        applicantname = #{applicantname,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentid != null" >
+        departmentid = #{departmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentname != null" >
+        departmentname = #{departmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="appletime != null" >
+        appletime = #{appletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="ascdepartmentid != null" >
+        ascdepartmentid = #{ascdepartmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="ascdepartmentname != null" >
+        ascdepartmentname = #{ascdepartmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=NUMERIC},
+      </if>
+      <if test="explain != null" >
+        explain = #{explain,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaserid != null" >
+        purchaserid = #{purchaserid,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasername != null" >
+        purchasername = #{purchasername,jdbcType=VARCHAR},
+      </if>
+      <if test="attachment != null" >
+        attachment = #{attachment,jdbcType=VARCHAR},
+      </if>
+      <if test="linenum != null" >
+        linenum = #{linenum,jdbcType=VARCHAR},
+      </if>
+      <if test="detailtype != null" >
+        detailtype = #{detailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="itemcode != null" >
+        itemcode = #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="itemname != null" >
+        itemname = #{itemname,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=NUMERIC},
+      </if>
+      <if test="avgprice != null" >
+        avgprice = #{avgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="lastprice != null" >
+        lastprice = #{lastprice,jdbcType=NUMERIC},
+      </if>
+      <if test="purprice != null" >
+        purprice = #{purprice,jdbcType=NUMERIC},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=NUMERIC},
+      </if>
+      <if test="inventory != null" >
+        inventory = #{inventory,jdbcType=NUMERIC},
+      </if>
+      <if test="warehousecode != null" >
+        warehousecode = #{warehousecode,jdbcType=VARCHAR},
+      </if>
+      <if test="warehousename != null" >
+        warehousename = #{warehousename,jdbcType=VARCHAR},
+      </if>
+      <if test="cardcode != null" >
+        cardcode = #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardname != null" >
+        cardname = #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="arrivetime != null" >
+        arrivetime = #{arrivetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="demand != null" >
+        demand = #{demand,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null" >
+        manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="vat != null" >
+        vat = #{vat,jdbcType=NUMERIC},
+      </if>
+      <if test="otype != null" >
+        otype = #{otype,jdbcType=VARCHAR},
+      </if>
+      <if test="vatgroup != null" >
+        vatgroup = #{vatgroup,jdbcType=VARCHAR},
+      </if>
+      <if test="totalnum != null" >
+        totalnum = #{totalnum,jdbcType=NUMERIC},
+      </if>
+      <if test="specialprice != null" >
+        specialprice = #{specialprice,jdbcType=NUMERIC},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="cancell != null" >
+        cancell = #{cancell,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.Application" >
+    update application
+    set docentry = #{docentry,jdbcType=VARCHAR},
+      applicantid = #{applicantid,jdbcType=VARCHAR},
+      applicantname = #{applicantname,jdbcType=VARCHAR},
+      departmentid = #{departmentid,jdbcType=VARCHAR},
+      departmentname = #{departmentname,jdbcType=VARCHAR},
+      appletime = #{appletime,jdbcType=TIMESTAMP},
+      type = #{type,jdbcType=VARCHAR},
+      ascdepartmentid = #{ascdepartmentid,jdbcType=VARCHAR},
+      ascdepartmentname = #{ascdepartmentname,jdbcType=VARCHAR},
+      money = #{money,jdbcType=NUMERIC},
+      explain = #{explain,jdbcType=VARCHAR},
+      purchaserid = #{purchaserid,jdbcType=VARCHAR},
+      purchasername = #{purchasername,jdbcType=VARCHAR},
+      attachment = #{attachment,jdbcType=VARCHAR},
+      linenum = #{linenum,jdbcType=VARCHAR},
+      detailtype = #{detailtype,jdbcType=VARCHAR},
+      itemcode = #{itemcode,jdbcType=VARCHAR},
+      itemname = #{itemname,jdbcType=VARCHAR},
+      num = #{num,jdbcType=NUMERIC},
+      avgprice = #{avgprice,jdbcType=NUMERIC},
+      lastprice = #{lastprice,jdbcType=NUMERIC},
+      purprice = #{purprice,jdbcType=NUMERIC},
+      amount = #{amount,jdbcType=NUMERIC},
+      inventory = #{inventory,jdbcType=NUMERIC},
+      warehousecode = #{warehousecode,jdbcType=VARCHAR},
+      warehousename = #{warehousename,jdbcType=VARCHAR},
+      cardcode = #{cardcode,jdbcType=VARCHAR},
+      cardname = #{cardname,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      arrivetime = #{arrivetime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=VARCHAR},
+      currency = #{currency,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      demand = #{demand,jdbcType=VARCHAR},
+      manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      vat = #{vat,jdbcType=NUMERIC},
+      otype = #{otype,jdbcType=VARCHAR},
+      vatgroup = #{vatgroup,jdbcType=VARCHAR},
+      totalnum = #{totalnum,jdbcType=NUMERIC},
+      specialprice = #{specialprice,jdbcType=NUMERIC},
+      remark = #{remark,jdbcType=VARCHAR},
+      cancell = #{cancell,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectApplicationByIds" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from application
+    where id in (${ids})
+
+    order by id desc
+  </select>
+
+  <select id="selectByKeyword" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from application
+    where 1 = 1
+    <if test="userid != null and userid != ''">
+      and purchaserid = #{userid,jdbcType=VARCHAR}
+    </if>
+
+    <if test="keyword != null and keyword != ''">
+      and (docentry like '%'||#{keyword,jdbcType=VARCHAR}||'%' or id||'' like '%'||#{keyword,jdbcType=VARCHAR}||'%' or applicantname like '%'||#{keyword,jdbcType=VARCHAR}||'%')
+    </if>
+    <if test="state != null and state != ''">
+      and state = #{state,jdbcType=VARCHAR}
+    </if>
+    <if test="docentry != null and docentry != ''">
+      and docentry = #{docentry,jdbcType=VARCHAR}
+    </if>
+    <if test="linenum != null and linenum != ''">
+      and linenum = #{linenum,jdbcType=VARCHAR}
+    </if>
+    order by docentry desc, id desc
+  </select>
+
+  <select id="selectAppTotalList" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    min(id) as id,docentry,linenum,applicantid,applicantname,departmentid,departmentname,ascdepartmentid,ascdepartmentname,itemcode,itemname,detailtype,
+    appletime,min(type) as type,min(money) as money,min(explain) as explain,min(purchaserid) as purchaserid,min(purchasername) as purchasername,
+    min(totalnum) as totalnum
+    from application
+    where 1 = 1
+    and purchaserid = #{userid,jdbcType=VARCHAR}
+
+    <if test="keyword != null and keyword != ''">
+      and (docentry like '%'||#{keyword,jdbcType=VARCHAR}||'%' or id||'' like '%'||#{keyword,jdbcType=VARCHAR}||'%' or applicantname like '%'||#{keyword,jdbcType=VARCHAR}||'%')
+    </if>
+    <if test="state != null and state != ''">
+      and state = #{state,jdbcType=VARCHAR}
+    </if>
+    group by docentry,linenum,applicantid,applicantname,departmentid,departmentname,ascdepartmentid,ascdepartmentname,appletime,itemcode,itemname,detailtype
+    order by docentry desc, linenum asc
+  </select>
+
+  <select id="selectByids" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    DISTINCT a.*
+    from application a, (
+    select docentry,linenum
+    from application
+    where id in (${ids})
+    )b
+    where a.docentry = b.docentry and a.linenum = b.linenum
+
+    order by a.cardcode asc
+  </select>
+</mapper>

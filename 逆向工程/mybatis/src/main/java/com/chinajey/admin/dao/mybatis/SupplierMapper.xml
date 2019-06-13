@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.SupplierMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.Supplier" >
+    <id column="cardcode" property="cardcode" jdbcType="VARCHAR" />
+    <result column="cardname" property="cardname" jdbcType="VARCHAR" />
+    <result column="cardtype" property="cardtype" jdbcType="VARCHAR" />
+    <result column="lictradnum" property="lictradnum" jdbcType="VARCHAR" />
+    <result column="slpcode" property="slpcode" jdbcType="INTEGER" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="groupcode" property="groupcode" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="contactname" property="contactname" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="intrntsite" property="intrntsite" jdbcType="VARCHAR" />
+    <result column="fax" property="fax" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cardcode, cardname, cardtype, lictradnum, slpcode, currency, groupcode, address, 
+    contactname, phone, intrntsite, fax, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from supplier
+    where cardcode = #{cardcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from supplier
+    where cardcode = #{cardcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.Supplier" >
+    insert into supplier (cardcode, cardname, cardtype, 
+      lictradnum, slpcode, currency, 
+      groupcode, address, contactname, 
+      phone, intrntsite, fax, 
+      remark)
+    values (#{cardcode,jdbcType=VARCHAR}, #{cardname,jdbcType=VARCHAR}, #{cardtype,jdbcType=VARCHAR}, 
+      #{lictradnum,jdbcType=VARCHAR}, #{slpcode,jdbcType=INTEGER}, #{currency,jdbcType=VARCHAR}, 
+      #{groupcode,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{contactname,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{intrntsite,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.Supplier" >
+    insert into supplier
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cardcode != null" >
+        cardcode,
+      </if>
+      <if test="cardname != null" >
+        cardname,
+      </if>
+      <if test="cardtype != null" >
+        cardtype,
+      </if>
+      <if test="lictradnum != null" >
+        lictradnum,
+      </if>
+      <if test="slpcode != null" >
+        slpcode,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="groupcode != null" >
+        groupcode,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="contactname != null" >
+        contactname,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="intrntsite != null" >
+        intrntsite,
+      </if>
+      <if test="fax != null" >
+        fax,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cardcode != null" >
+        #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardname != null" >
+        #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="cardtype != null" >
+        #{cardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="lictradnum != null" >
+        #{lictradnum,jdbcType=VARCHAR},
+      </if>
+      <if test="slpcode != null" >
+        #{slpcode,jdbcType=INTEGER},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="groupcode != null" >
+        #{groupcode,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="contactname != null" >
+        #{contactname,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="intrntsite != null" >
+        #{intrntsite,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.Supplier" >
+    update supplier
+    <set >
+      <if test="cardname != null" >
+        cardname = #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="cardtype != null" >
+        cardtype = #{cardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="lictradnum != null" >
+        lictradnum = #{lictradnum,jdbcType=VARCHAR},
+      </if>
+      <if test="slpcode != null" >
+        slpcode = #{slpcode,jdbcType=INTEGER},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="groupcode != null" >
+        groupcode = #{groupcode,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="contactname != null" >
+        contactname = #{contactname,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="intrntsite != null" >
+        intrntsite = #{intrntsite,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cardcode = #{cardcode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.Supplier" >
+    update supplier
+    set cardname = #{cardname,jdbcType=VARCHAR},
+      cardtype = #{cardtype,jdbcType=VARCHAR},
+      lictradnum = #{lictradnum,jdbcType=VARCHAR},
+      slpcode = #{slpcode,jdbcType=INTEGER},
+      currency = #{currency,jdbcType=VARCHAR},
+      groupcode = #{groupcode,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      contactname = #{contactname,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      intrntsite = #{intrntsite,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where cardcode = #{cardcode,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectSuppliers" parameterType="java.lang.String" resultType="com.chinajey.admin.dao.entity.Supplier">
+    select
+    <include refid="Base_Column_List" />
+    from supplier
+    where 1 = 1
+    <if test="keyword != null and keyword != ''">
+      and (cardcode like '%'||#{keyword,jdbcType=VARCHAR}||'%' or cardname like '%'||#{keyword,jdbcType=VARCHAR}||'%')
+    </if>
+  </select>
+
+  <select id="selectByGroupCode" parameterType="java.lang.String" resultType="com.chinajey.admin.dao.model.SupplierModel">
+    select
+    <include refid="Base_Column_List" />
+    from supplier
+    where 1 = 1
+    <if test="groupcode != null and groupcode != ''">
+      and groupcode = #{groupcode,jdbcType=NUMERIC}
+    </if>
+    <if test="keyword != null and keyword != ''">
+      and (cardcode like '%'||#{keyword,jdbcType=VARCHAR}||'%' or cardname like '%'||#{keyword,jdbcType=VARCHAR}||'%')
+    </if>
+    order by cardcode
+  </select>
+
+
+</mapper>

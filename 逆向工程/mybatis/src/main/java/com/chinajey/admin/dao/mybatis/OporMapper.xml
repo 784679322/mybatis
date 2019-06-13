@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.OporMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.Opor" >
+    <id column="oporid" property="oporid" jdbcType="INTEGER" />
+    <result column="cardcode" property="cardcode" jdbcType="VARCHAR" />
+    <result column="cardname" property="cardname" jdbcType="VARCHAR" />
+    <result column="docdate" property="docdate" jdbcType="TIMESTAMP" />
+    <result column="taxdate" property="taxdate" jdbcType="TIMESTAMP" />
+    <result column="docduedate" property="docduedate" jdbcType="TIMESTAMP" />
+    <result column="otype" property="otype" jdbcType="VARCHAR" />
+    <result column="factory" property="factory" jdbcType="VARCHAR" />
+    <result column="sourcetype" property="sourcetype" jdbcType="VARCHAR" />
+    <result column="sourcebill" property="sourcebill" jdbcType="VARCHAR" />
+    <result column="slpcode" property="slpcode" jdbcType="INTEGER" />
+    <result column="docnum" property="docnum" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="syncedi" property="syncedi" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="sapordercode" property="sapordercode" jdbcType="VARCHAR" />
+    <result column="oaid" property="oaid" jdbcType="VARCHAR" />
+    <result column="jobnum" property="jobnum" jdbcType="VARCHAR" />
+    <result column="isdel" property="isdel" jdbcType="INTEGER" />
+    <result column="orderstate" property="orderstate" jdbcType="VARCHAR" />
+    <result column="errormsg" property="errormsg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    oporid, cardcode, cardname, docdate, taxdate, docduedate, otype, factory, sourcetype, 
+    sourcebill, slpcode, docnum, state, syncedi, userid, sapordercode, oaid, jobnum, 
+    isdel, orderstate, errormsg
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from opor
+    where oporid = #{oporid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from opor
+    where oporid = #{oporid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.Opor" >
+    insert into opor (oporid, cardcode, cardname, 
+      docdate, taxdate, docduedate, 
+      otype, factory, sourcetype, 
+      sourcebill, slpcode, docnum, 
+      state, syncedi, userid, 
+      sapordercode, oaid, jobnum, 
+      isdel, orderstate, errormsg
+      )
+    values (#{oporid,jdbcType=INTEGER}, #{cardcode,jdbcType=VARCHAR}, #{cardname,jdbcType=VARCHAR}, 
+      #{docdate,jdbcType=TIMESTAMP}, #{taxdate,jdbcType=TIMESTAMP}, #{docduedate,jdbcType=TIMESTAMP}, 
+      #{otype,jdbcType=VARCHAR}, #{factory,jdbcType=VARCHAR}, #{sourcetype,jdbcType=VARCHAR}, 
+      #{sourcebill,jdbcType=VARCHAR}, #{slpcode,jdbcType=INTEGER}, #{docnum,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{syncedi,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, 
+      #{sapordercode,jdbcType=VARCHAR}, #{oaid,jdbcType=VARCHAR}, #{jobnum,jdbcType=VARCHAR}, 
+      #{isdel,jdbcType=INTEGER}, #{orderstate,jdbcType=VARCHAR}, #{errormsg,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.Opor"  useGeneratedKeys="true" keyColumn="oporid" keyProperty="oporid">
+    insert into opor
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="oporid != null" >
+        oporid,
+      </if>
+      <if test="cardcode != null" >
+        cardcode,
+      </if>
+      <if test="cardname != null" >
+        cardname,
+      </if>
+      <if test="docdate != null" >
+        docdate,
+      </if>
+      <if test="taxdate != null" >
+        taxdate,
+      </if>
+      <if test="docduedate != null" >
+        docduedate,
+      </if>
+      <if test="otype != null" >
+        otype,
+      </if>
+      <if test="factory != null" >
+        factory,
+      </if>
+      <if test="sourcetype != null" >
+        sourcetype,
+      </if>
+      <if test="sourcebill != null" >
+        sourcebill,
+      </if>
+      <if test="slpcode != null" >
+        slpcode,
+      </if>
+      <if test="docnum != null" >
+        docnum,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="syncedi != null" >
+        syncedi,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="sapordercode != null" >
+        sapordercode,
+      </if>
+      <if test="oaid != null" >
+        oaid,
+      </if>
+      <if test="jobnum != null" >
+        jobnum,
+      </if>
+      <if test="isdel != null" >
+        isdel,
+      </if>
+      <if test="orderstate != null" >
+        orderstate,
+      </if>
+      <if test="errormsg != null" >
+        errormsg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="oporid != null" >
+        #{oporid,jdbcType=INTEGER},
+      </if>
+      <if test="cardcode != null" >
+        #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardname != null" >
+        #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="docdate != null" >
+        #{docdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taxdate != null" >
+        #{taxdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="docduedate != null" >
+        #{docduedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="otype != null" >
+        #{otype,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcetype != null" >
+        #{sourcetype,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcebill != null" >
+        #{sourcebill,jdbcType=VARCHAR},
+      </if>
+      <if test="slpcode != null" >
+        #{slpcode,jdbcType=INTEGER},
+      </if>
+      <if test="docnum != null" >
+        #{docnum,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="syncedi != null" >
+        #{syncedi,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="sapordercode != null" >
+        #{sapordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="oaid != null" >
+        #{oaid,jdbcType=VARCHAR},
+      </if>
+      <if test="jobnum != null" >
+        #{jobnum,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        #{isdel,jdbcType=INTEGER},
+      </if>
+      <if test="orderstate != null" >
+        #{orderstate,jdbcType=VARCHAR},
+      </if>
+      <if test="errormsg != null" >
+        #{errormsg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.Opor" >
+    update opor
+    <set >
+      <if test="cardcode != null" >
+        cardcode = #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardname != null" >
+        cardname = #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="docdate != null" >
+        docdate = #{docdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taxdate != null" >
+        taxdate = #{taxdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="docduedate != null" >
+        docduedate = #{docduedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="otype != null" >
+        otype = #{otype,jdbcType=VARCHAR},
+      </if>
+      <if test="factory != null" >
+        factory = #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcetype != null" >
+        sourcetype = #{sourcetype,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcebill != null" >
+        sourcebill = #{sourcebill,jdbcType=VARCHAR},
+      </if>
+      <if test="slpcode != null" >
+        slpcode = #{slpcode,jdbcType=INTEGER},
+      </if>
+      <if test="docnum != null" >
+        docnum = #{docnum,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="syncedi != null" >
+        syncedi = #{syncedi,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="sapordercode != null" >
+        sapordercode = #{sapordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="oaid != null" >
+        oaid = #{oaid,jdbcType=VARCHAR},
+      </if>
+      <if test="jobnum != null" >
+        jobnum = #{jobnum,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        isdel = #{isdel,jdbcType=INTEGER},
+      </if>
+      <if test="orderstate != null" >
+        orderstate = #{orderstate,jdbcType=VARCHAR},
+      </if>
+      <if test="errormsg != null" >
+        errormsg = #{errormsg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where oporid = #{oporid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.Opor" >
+    update opor
+    set cardcode = #{cardcode,jdbcType=VARCHAR},
+      cardname = #{cardname,jdbcType=VARCHAR},
+      docdate = #{docdate,jdbcType=TIMESTAMP},
+      taxdate = #{taxdate,jdbcType=TIMESTAMP},
+      docduedate = #{docduedate,jdbcType=TIMESTAMP},
+      otype = #{otype,jdbcType=VARCHAR},
+      factory = #{factory,jdbcType=VARCHAR},
+      sourcetype = #{sourcetype,jdbcType=VARCHAR},
+      sourcebill = #{sourcebill,jdbcType=VARCHAR},
+      slpcode = #{slpcode,jdbcType=INTEGER},
+      docnum = #{docnum,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      syncedi = #{syncedi,jdbcType=INTEGER},
+      userid = #{userid,jdbcType=VARCHAR},
+      sapordercode = #{sapordercode,jdbcType=VARCHAR},
+      oaid = #{oaid,jdbcType=VARCHAR},
+      jobnum = #{jobnum,jdbcType=VARCHAR},
+      isdel = #{isdel,jdbcType=INTEGER},
+      orderstate = #{orderstate,jdbcType=VARCHAR},
+      errormsg = #{errormsg,jdbcType=VARCHAR}
+    where oporid = #{oporid,jdbcType=INTEGER}
+  </update>
+
+  <!-- 自定义sql-开始 -->
+  <select id="selectByKeyword" parameterType="java.lang.String" resultType="com.chinajey.admin.dao.model.OporModel">
+    select
+    <include refid="Base_Column_List" />
+    from opor
+    where 1 = 1 and isdel = 0
+    <if test = "keyword != null and keyword != ''">
+      and (oporid||'' like '%'||#{keyword,jdbcType=INTEGER}||'%' or cardname like '%'||#{keyword,jdbcType=INTEGER}||'%')
+    </if>
+    <if test = "jobnum != null and jobnum != ''">
+      and jobnum = #{jobnum,jdbcType=VARCHAR}
+    </if>
+    order by oporid DESC
+  </select>
+  <select id="selectByIsync" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from opor
+    where syncedi=0 and isdel = 0
+    and sapordercode IS NOT NULL
+  </select>
+</mapper>

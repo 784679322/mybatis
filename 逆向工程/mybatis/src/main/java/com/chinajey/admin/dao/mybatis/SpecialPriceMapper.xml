@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.SpecialPriceMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.SpecialPrice" >
+    <id column="cardcode" property="cardcode" jdbcType="VARCHAR" />
+    <id column="itemcode" property="itemcode" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="NUMERIC" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cardcode, itemcode, price
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.chinajey.admin.dao.entity.SpecialPriceKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from special_price
+    where cardcode = #{cardcode,jdbcType=VARCHAR}
+      and itemcode = #{itemcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.SpecialPriceKey" >
+    delete from special_price
+    where cardcode = #{cardcode,jdbcType=VARCHAR}
+      and itemcode = #{itemcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.SpecialPrice" >
+    insert into special_price (cardcode, itemcode, price
+      )
+    values (#{cardcode,jdbcType=VARCHAR}, #{itemcode,jdbcType=VARCHAR}, #{price,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.SpecialPrice" >
+    insert into special_price
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cardcode != null" >
+        cardcode,
+      </if>
+      <if test="itemcode != null" >
+        itemcode,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cardcode != null" >
+        #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="itemcode != null" >
+        #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.SpecialPrice" >
+    update special_price
+    <set >
+      <if test="price != null" >
+        price = #{price,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where cardcode = #{cardcode,jdbcType=VARCHAR}
+      and itemcode = #{itemcode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.SpecialPrice" >
+    update special_price
+    set price = #{price,jdbcType=NUMERIC}
+    where cardcode = #{cardcode,jdbcType=VARCHAR}
+      and itemcode = #{itemcode,jdbcType=VARCHAR}
+  </update>
+</mapper>

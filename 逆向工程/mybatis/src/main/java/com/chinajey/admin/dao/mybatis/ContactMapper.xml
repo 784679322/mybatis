@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.ContactMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.Contact" >
+    <id column="cntctcode" property="cntctcode" jdbcType="INTEGER" />
+    <result column="cardcode" property="cardcode" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="emaill" property="emaill" jdbcType="VARCHAR" />
+    <result column="tel1" property="tel1" jdbcType="VARCHAR" />
+    <result column="fax" property="fax" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cntctcode, cardcode, name, phone, qq, emaill, tel1, fax, state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from contact
+    where cntctcode = #{cntctcode,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from contact
+    where cntctcode = #{cntctcode,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.Contact" >
+    insert into contact (cntctcode, cardcode, name, 
+      phone, qq, emaill, 
+      tel1, fax, state)
+    values (#{cntctcode,jdbcType=INTEGER}, #{cardcode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{emaill,jdbcType=VARCHAR}, 
+      #{tel1,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.Contact" >
+    insert into contact
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cntctcode != null" >
+        cntctcode,
+      </if>
+      <if test="cardcode != null" >
+        cardcode,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="emaill != null" >
+        emaill,
+      </if>
+      <if test="tel1 != null" >
+        tel1,
+      </if>
+      <if test="fax != null" >
+        fax,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cntctcode != null" >
+        #{cntctcode,jdbcType=INTEGER},
+      </if>
+      <if test="cardcode != null" >
+        #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="emaill != null" >
+        #{emaill,jdbcType=VARCHAR},
+      </if>
+      <if test="tel1 != null" >
+        #{tel1,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.Contact" >
+    update contact
+    <set >
+      <if test="cardcode != null" >
+        cardcode = #{cardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="emaill != null" >
+        emaill = #{emaill,jdbcType=VARCHAR},
+      </if>
+      <if test="tel1 != null" >
+        tel1 = #{tel1,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cntctcode = #{cntctcode,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.Contact" >
+    update contact
+    set cardcode = #{cardcode,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      emaill = #{emaill,jdbcType=VARCHAR},
+      tel1 = #{tel1,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR}
+    where cntctcode = #{cntctcode,jdbcType=INTEGER}
+  </update>
+</mapper>

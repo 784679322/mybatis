@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.SysOorgMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.SysOorg" >
+    <id column="orgid" property="orgid" jdbcType="VARCHAR" />
+    <result column="companyid" property="companyid" jdbcType="INTEGER" />
+    <result column="preorgid" property="preorgid" jdbcType="VARCHAR" />
+    <result column="orgname" property="orgname" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="visible" property="visible" jdbcType="INTEGER" />
+    <result column="manager" property="manager" jdbcType="VARCHAR" />
+    <result column="vicemanager" property="vicemanager" jdbcType="VARCHAR" />
+    <result column="shopid" property="shopid" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="idpath" property="idpath" jdbcType="VARCHAR" />
+    <result column="namepath" property="namepath" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    orgid, companyid, preorgid, orgname, type, visible, manager, vicemanager, shopid, 
+    remark, idpath, namepath
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_oorg
+    where orgid = #{orgid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_oorg
+    where orgid = #{orgid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.SysOorg" >
+    insert into sys_oorg (orgid, companyid, preorgid, 
+      orgname, type, visible, 
+      manager, vicemanager, shopid, 
+      remark, idpath, namepath
+      )
+    values (#{orgid,jdbcType=VARCHAR}, #{companyid,jdbcType=INTEGER}, #{preorgid,jdbcType=VARCHAR}, 
+      #{orgname,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{visible,jdbcType=INTEGER}, 
+      #{manager,jdbcType=VARCHAR}, #{vicemanager,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{idpath,jdbcType=VARCHAR}, #{namepath,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.SysOorg" >
+    insert into sys_oorg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orgid != null" >
+        orgid,
+      </if>
+      <if test="companyid != null" >
+        companyid,
+      </if>
+      <if test="preorgid != null" >
+        preorgid,
+      </if>
+      <if test="orgname != null" >
+        orgname,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="visible != null" >
+        visible,
+      </if>
+      <if test="manager != null" >
+        manager,
+      </if>
+      <if test="vicemanager != null" >
+        vicemanager,
+      </if>
+      <if test="shopid != null" >
+        shopid,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="idpath != null" >
+        idpath,
+      </if>
+      <if test="namepath != null" >
+        namepath,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orgid != null" >
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null" >
+        #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="preorgid != null" >
+        #{preorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgname != null" >
+        #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="visible != null" >
+        #{visible,jdbcType=INTEGER},
+      </if>
+      <if test="manager != null" >
+        #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="vicemanager != null" >
+        #{vicemanager,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="idpath != null" >
+        #{idpath,jdbcType=VARCHAR},
+      </if>
+      <if test="namepath != null" >
+        #{namepath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.SysOorg" >
+    update sys_oorg
+    <set >
+      <if test="companyid != null" >
+        companyid = #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="preorgid != null" >
+        preorgid = #{preorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgname != null" >
+        orgname = #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="visible != null" >
+        visible = #{visible,jdbcType=INTEGER},
+      </if>
+      <if test="manager != null" >
+        manager = #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="vicemanager != null" >
+        vicemanager = #{vicemanager,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null" >
+        shopid = #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="idpath != null" >
+        idpath = #{idpath,jdbcType=VARCHAR},
+      </if>
+      <if test="namepath != null" >
+        namepath = #{namepath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where orgid = #{orgid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.SysOorg" >
+    update sys_oorg
+    set companyid = #{companyid,jdbcType=INTEGER},
+      preorgid = #{preorgid,jdbcType=VARCHAR},
+      orgname = #{orgname,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      visible = #{visible,jdbcType=INTEGER},
+      manager = #{manager,jdbcType=VARCHAR},
+      vicemanager = #{vicemanager,jdbcType=VARCHAR},
+      shopid = #{shopid,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      idpath = #{idpath,jdbcType=VARCHAR},
+      namepath = #{namepath,jdbcType=VARCHAR}
+    where orgid = #{orgid,jdbcType=VARCHAR}
+  </update>
+</mapper>

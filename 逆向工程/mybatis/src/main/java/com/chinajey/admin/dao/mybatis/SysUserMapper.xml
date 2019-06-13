@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.SysUserMapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.SysUser" >
+    <id column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="usercode" property="usercode" jdbcType="INTEGER" />
+    <result column="orgid" property="orgid" jdbcType="VARCHAR" />
+    <result column="companyid" property="companyid" jdbcType="INTEGER" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="domainid" property="domainid" jdbcType="VARCHAR" />
+    <result column="usertype" property="usertype" jdbcType="INTEGER" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="telof" property="telof" jdbcType="VARCHAR" />
+    <result column="telho" property="telho" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="visible" property="visible" jdbcType="INTEGER" />
+    <result column="vispop3" property="vispop3" jdbcType="INTEGER" />
+    <result column="needchpwd" property="needchpwd" jdbcType="INTEGER" />
+    <result column="vischpwd" property="vischpwd" jdbcType="INTEGER" />
+    <result column="viscert" property="viscert" jdbcType="INTEGER" />
+    <result column="viswarn" property="viswarn" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="permsibling" property="permsibling" jdbcType="INTEGER" />
+    <result column="permleader" property="permleader" jdbcType="INTEGER" />
+    <result column="idpath" property="idpath" jdbcType="VARCHAR" />
+    <result column="cockpit" property="cockpit" jdbcType="VARCHAR" />
+    <result column="userphoto" property="userphoto" jdbcType="VARCHAR" />
+    <result column="bbsphoto" property="bbsphoto" jdbcType="VARCHAR" />
+    <result column="logindate" property="logindate" jdbcType="TIMESTAMP" />
+    <result column="userleader" property="userleader" jdbcType="VARCHAR" />
+    <result column="teltype1" property="teltype1" jdbcType="VARCHAR" />
+    <result column="telphone1" property="telphone1" jdbcType="VARCHAR" />
+    <result column="teltype2" property="teltype2" jdbcType="VARCHAR" />
+    <result column="telphone2" property="telphone2" jdbcType="VARCHAR" />
+    <result column="teltype3" property="teltype3" jdbcType="VARCHAR" />
+    <result column="telphone3" property="telphone3" jdbcType="VARCHAR" />
+    <result column="teltype4" property="teltype4" jdbcType="VARCHAR" />
+    <result column="telphone4" property="telphone4" jdbcType="VARCHAR" />
+    <result column="teltype5" property="teltype5" jdbcType="VARCHAR" />
+    <result column="telphone5" property="telphone5" jdbcType="VARCHAR" />
+    <result column="sapempid" property="sapempid" jdbcType="VARCHAR" />
+    <result column="jobnum" property="jobnum" jdbcType="VARCHAR" />
+    <result column="oaid" property="oaid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userid, username, usercode, orgid, companyid, password, domainid, usertype, mobile, 
+    telof, telho, email, visible, vispop3, needchpwd, vischpwd, viscert, viswarn, remark, 
+    permsibling, permleader, idpath, cockpit, userphoto, bbsphoto, logindate, userleader, 
+    teltype1, telphone1, teltype2, telphone2, teltype3, telphone3, teltype4, telphone4, 
+    teltype5, telphone5, sapempid, jobnum, oaid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.SysUser" >
+    insert into sys_user (userid, username, usercode, 
+      orgid, companyid, password, 
+      domainid, usertype, mobile, 
+      telof, telho, email, 
+      visible, vispop3, needchpwd, 
+      vischpwd, viscert, viswarn, 
+      remark, permsibling, permleader, 
+      idpath, cockpit, userphoto, 
+      bbsphoto, logindate, userleader, 
+      teltype1, telphone1, teltype2, 
+      telphone2, teltype3, telphone3, 
+      teltype4, telphone4, teltype5, 
+      telphone5, sapempid, jobnum, 
+      oaid)
+    values (#{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{usercode,jdbcType=INTEGER}, 
+      #{orgid,jdbcType=VARCHAR}, #{companyid,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, 
+      #{domainid,jdbcType=VARCHAR}, #{usertype,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, 
+      #{telof,jdbcType=VARCHAR}, #{telho,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{visible,jdbcType=INTEGER}, #{vispop3,jdbcType=INTEGER}, #{needchpwd,jdbcType=INTEGER}, 
+      #{vischpwd,jdbcType=INTEGER}, #{viscert,jdbcType=INTEGER}, #{viswarn,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{permsibling,jdbcType=INTEGER}, #{permleader,jdbcType=INTEGER}, 
+      #{idpath,jdbcType=VARCHAR}, #{cockpit,jdbcType=VARCHAR}, #{userphoto,jdbcType=VARCHAR}, 
+      #{bbsphoto,jdbcType=VARCHAR}, #{logindate,jdbcType=TIMESTAMP}, #{userleader,jdbcType=VARCHAR}, 
+      #{teltype1,jdbcType=VARCHAR}, #{telphone1,jdbcType=VARCHAR}, #{teltype2,jdbcType=VARCHAR}, 
+      #{telphone2,jdbcType=VARCHAR}, #{teltype3,jdbcType=VARCHAR}, #{telphone3,jdbcType=VARCHAR}, 
+      #{teltype4,jdbcType=VARCHAR}, #{telphone4,jdbcType=VARCHAR}, #{teltype5,jdbcType=VARCHAR}, 
+      #{telphone5,jdbcType=VARCHAR}, #{sapempid,jdbcType=VARCHAR}, #{jobnum,jdbcType=VARCHAR}, 
+      #{oaid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.SysUser" >
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="usercode != null" >
+        usercode,
+      </if>
+      <if test="orgid != null" >
+        orgid,
+      </if>
+      <if test="companyid != null" >
+        companyid,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="domainid != null" >
+        domainid,
+      </if>
+      <if test="usertype != null" >
+        usertype,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="telof != null" >
+        telof,
+      </if>
+      <if test="telho != null" >
+        telho,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="visible != null" >
+        visible,
+      </if>
+      <if test="vispop3 != null" >
+        vispop3,
+      </if>
+      <if test="needchpwd != null" >
+        needchpwd,
+      </if>
+      <if test="vischpwd != null" >
+        vischpwd,
+      </if>
+      <if test="viscert != null" >
+        viscert,
+      </if>
+      <if test="viswarn != null" >
+        viswarn,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="permsibling != null" >
+        permsibling,
+      </if>
+      <if test="permleader != null" >
+        permleader,
+      </if>
+      <if test="idpath != null" >
+        idpath,
+      </if>
+      <if test="cockpit != null" >
+        cockpit,
+      </if>
+      <if test="userphoto != null" >
+        userphoto,
+      </if>
+      <if test="bbsphoto != null" >
+        bbsphoto,
+      </if>
+      <if test="logindate != null" >
+        logindate,
+      </if>
+      <if test="userleader != null" >
+        userleader,
+      </if>
+      <if test="teltype1 != null" >
+        teltype1,
+      </if>
+      <if test="telphone1 != null" >
+        telphone1,
+      </if>
+      <if test="teltype2 != null" >
+        teltype2,
+      </if>
+      <if test="telphone2 != null" >
+        telphone2,
+      </if>
+      <if test="teltype3 != null" >
+        teltype3,
+      </if>
+      <if test="telphone3 != null" >
+        telphone3,
+      </if>
+      <if test="teltype4 != null" >
+        teltype4,
+      </if>
+      <if test="telphone4 != null" >
+        telphone4,
+      </if>
+      <if test="teltype5 != null" >
+        teltype5,
+      </if>
+      <if test="telphone5 != null" >
+        telphone5,
+      </if>
+      <if test="sapempid != null" >
+        sapempid,
+      </if>
+      <if test="jobnum != null" >
+        jobnum,
+      </if>
+      <if test="oaid != null" >
+        oaid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="usercode != null" >
+        #{usercode,jdbcType=INTEGER},
+      </if>
+      <if test="orgid != null" >
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null" >
+        #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="domainid != null" >
+        #{domainid,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null" >
+        #{usertype,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="telof != null" >
+        #{telof,jdbcType=VARCHAR},
+      </if>
+      <if test="telho != null" >
+        #{telho,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="visible != null" >
+        #{visible,jdbcType=INTEGER},
+      </if>
+      <if test="vispop3 != null" >
+        #{vispop3,jdbcType=INTEGER},
+      </if>
+      <if test="needchpwd != null" >
+        #{needchpwd,jdbcType=INTEGER},
+      </if>
+      <if test="vischpwd != null" >
+        #{vischpwd,jdbcType=INTEGER},
+      </if>
+      <if test="viscert != null" >
+        #{viscert,jdbcType=INTEGER},
+      </if>
+      <if test="viswarn != null" >
+        #{viswarn,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="permsibling != null" >
+        #{permsibling,jdbcType=INTEGER},
+      </if>
+      <if test="permleader != null" >
+        #{permleader,jdbcType=INTEGER},
+      </if>
+      <if test="idpath != null" >
+        #{idpath,jdbcType=VARCHAR},
+      </if>
+      <if test="cockpit != null" >
+        #{cockpit,jdbcType=VARCHAR},
+      </if>
+      <if test="userphoto != null" >
+        #{userphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="bbsphoto != null" >
+        #{bbsphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="logindate != null" >
+        #{logindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userleader != null" >
+        #{userleader,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype1 != null" >
+        #{teltype1,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone1 != null" >
+        #{telphone1,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype2 != null" >
+        #{teltype2,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone2 != null" >
+        #{telphone2,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype3 != null" >
+        #{teltype3,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone3 != null" >
+        #{telphone3,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype4 != null" >
+        #{teltype4,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone4 != null" >
+        #{telphone4,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype5 != null" >
+        #{teltype5,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone5 != null" >
+        #{telphone5,jdbcType=VARCHAR},
+      </if>
+      <if test="sapempid != null" >
+        #{sapempid,jdbcType=VARCHAR},
+      </if>
+      <if test="jobnum != null" >
+        #{jobnum,jdbcType=VARCHAR},
+      </if>
+      <if test="oaid != null" >
+        #{oaid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.SysUser" >
+    update sys_user
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="usercode != null" >
+        usercode = #{usercode,jdbcType=INTEGER},
+      </if>
+      <if test="orgid != null" >
+        orgid = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null" >
+        companyid = #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="domainid != null" >
+        domainid = #{domainid,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null" >
+        usertype = #{usertype,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="telof != null" >
+        telof = #{telof,jdbcType=VARCHAR},
+      </if>
+      <if test="telho != null" >
+        telho = #{telho,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="visible != null" >
+        visible = #{visible,jdbcType=INTEGER},
+      </if>
+      <if test="vispop3 != null" >
+        vispop3 = #{vispop3,jdbcType=INTEGER},
+      </if>
+      <if test="needchpwd != null" >
+        needchpwd = #{needchpwd,jdbcType=INTEGER},
+      </if>
+      <if test="vischpwd != null" >
+        vischpwd = #{vischpwd,jdbcType=INTEGER},
+      </if>
+      <if test="viscert != null" >
+        viscert = #{viscert,jdbcType=INTEGER},
+      </if>
+      <if test="viswarn != null" >
+        viswarn = #{viswarn,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="permsibling != null" >
+        permsibling = #{permsibling,jdbcType=INTEGER},
+      </if>
+      <if test="permleader != null" >
+        permleader = #{permleader,jdbcType=INTEGER},
+      </if>
+      <if test="idpath != null" >
+        idpath = #{idpath,jdbcType=VARCHAR},
+      </if>
+      <if test="cockpit != null" >
+        cockpit = #{cockpit,jdbcType=VARCHAR},
+      </if>
+      <if test="userphoto != null" >
+        userphoto = #{userphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="bbsphoto != null" >
+        bbsphoto = #{bbsphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="logindate != null" >
+        logindate = #{logindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userleader != null" >
+        userleader = #{userleader,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype1 != null" >
+        teltype1 = #{teltype1,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone1 != null" >
+        telphone1 = #{telphone1,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype2 != null" >
+        teltype2 = #{teltype2,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone2 != null" >
+        telphone2 = #{telphone2,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype3 != null" >
+        teltype3 = #{teltype3,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone3 != null" >
+        telphone3 = #{telphone3,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype4 != null" >
+        teltype4 = #{teltype4,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone4 != null" >
+        telphone4 = #{telphone4,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype5 != null" >
+        teltype5 = #{teltype5,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone5 != null" >
+        telphone5 = #{telphone5,jdbcType=VARCHAR},
+      </if>
+      <if test="sapempid != null" >
+        sapempid = #{sapempid,jdbcType=VARCHAR},
+      </if>
+      <if test="jobnum != null" >
+        jobnum = #{jobnum,jdbcType=VARCHAR},
+      </if>
+      <if test="oaid != null" >
+        oaid = #{oaid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.SysUser" >
+    update sys_user
+    set username = #{username,jdbcType=VARCHAR},
+      usercode = #{usercode,jdbcType=INTEGER},
+      orgid = #{orgid,jdbcType=VARCHAR},
+      companyid = #{companyid,jdbcType=INTEGER},
+      password = #{password,jdbcType=VARCHAR},
+      domainid = #{domainid,jdbcType=VARCHAR},
+      usertype = #{usertype,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      telof = #{telof,jdbcType=VARCHAR},
+      telho = #{telho,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      visible = #{visible,jdbcType=INTEGER},
+      vispop3 = #{vispop3,jdbcType=INTEGER},
+      needchpwd = #{needchpwd,jdbcType=INTEGER},
+      vischpwd = #{vischpwd,jdbcType=INTEGER},
+      viscert = #{viscert,jdbcType=INTEGER},
+      viswarn = #{viswarn,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      permsibling = #{permsibling,jdbcType=INTEGER},
+      permleader = #{permleader,jdbcType=INTEGER},
+      idpath = #{idpath,jdbcType=VARCHAR},
+      cockpit = #{cockpit,jdbcType=VARCHAR},
+      userphoto = #{userphoto,jdbcType=VARCHAR},
+      bbsphoto = #{bbsphoto,jdbcType=VARCHAR},
+      logindate = #{logindate,jdbcType=TIMESTAMP},
+      userleader = #{userleader,jdbcType=VARCHAR},
+      teltype1 = #{teltype1,jdbcType=VARCHAR},
+      telphone1 = #{telphone1,jdbcType=VARCHAR},
+      teltype2 = #{teltype2,jdbcType=VARCHAR},
+      telphone2 = #{telphone2,jdbcType=VARCHAR},
+      teltype3 = #{teltype3,jdbcType=VARCHAR},
+      telphone3 = #{telphone3,jdbcType=VARCHAR},
+      teltype4 = #{teltype4,jdbcType=VARCHAR},
+      telphone4 = #{telphone4,jdbcType=VARCHAR},
+      teltype5 = #{teltype5,jdbcType=VARCHAR},
+      telphone5 = #{telphone5,jdbcType=VARCHAR},
+      sapempid = #{sapempid,jdbcType=VARCHAR},
+      jobnum = #{jobnum,jdbcType=VARCHAR},
+      oaid = #{oaid,jdbcType=VARCHAR}
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectBySAPEmpid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_user
+    where sapempid = #{empId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByOAid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_user
+    where oaid = #{oaid,jdbcType=VARCHAR}
+  </select>
+
+  <update id="updateByOaKeySelective" parameterType="com.chinajey.admin.dao.entity.SysUser" >
+    update sys_user
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="usercode != null" >
+        usercode = #{usercode,jdbcType=INTEGER},
+      </if>
+      <if test="orgid != null" >
+        orgid = #{orgid,jdbcType=INTEGER},
+      </if>
+      <if test="companyid != null" >
+        companyid = #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="domainid != null" >
+        domainid = #{domainid,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null" >
+        usertype = #{usertype,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="telof != null" >
+        telof = #{telof,jdbcType=VARCHAR},
+      </if>
+      <if test="telho != null" >
+        telho = #{telho,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="visible != null" >
+        visible = #{visible,jdbcType=INTEGER},
+      </if>
+      <if test="vispop3 != null" >
+        vispop3 = #{vispop3,jdbcType=INTEGER},
+      </if>
+      <if test="needchpwd != null" >
+        needchpwd = #{needchpwd,jdbcType=INTEGER},
+      </if>
+      <if test="vischpwd != null" >
+        vischpwd = #{vischpwd,jdbcType=INTEGER},
+      </if>
+      <if test="viscert != null" >
+        viscert = #{viscert,jdbcType=INTEGER},
+      </if>
+      <if test="viswarn != null" >
+        viswarn = #{viswarn,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="permsibling != null" >
+        permsibling = #{permsibling,jdbcType=INTEGER},
+      </if>
+      <if test="permleader != null" >
+        permleader = #{permleader,jdbcType=INTEGER},
+      </if>
+      <if test="idpath != null" >
+        idpath = #{idpath,jdbcType=VARCHAR},
+      </if>
+      <if test="cockpit != null" >
+        cockpit = #{cockpit,jdbcType=VARCHAR},
+      </if>
+      <if test="userphoto != null" >
+        userphoto = #{userphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="bbsphoto != null" >
+        bbsphoto = #{bbsphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="logindate != null" >
+        logindate = #{logindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userleader != null" >
+        userleader = #{userleader,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype1 != null" >
+        teltype1 = #{teltype1,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone1 != null" >
+        telphone1 = #{telphone1,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype2 != null" >
+        teltype2 = #{teltype2,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone2 != null" >
+        telphone2 = #{telphone2,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype3 != null" >
+        teltype3 = #{teltype3,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone3 != null" >
+        telphone3 = #{telphone3,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype4 != null" >
+        teltype4 = #{teltype4,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone4 != null" >
+        telphone4 = #{telphone4,jdbcType=VARCHAR},
+      </if>
+      <if test="teltype5 != null" >
+        teltype5 = #{teltype5,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone5 != null" >
+        telphone5 = #{telphone5,jdbcType=VARCHAR},
+      </if>
+      <if test="sapempid != null" >
+        sapempid = #{sapempid,jdbcType=VARCHAR},
+      </if>
+      <if test="jobnum != null" >
+        jobnum = #{jobnum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where oaid = #{oaid,jdbcType=VARCHAR}
+  </update>
+</mapper>

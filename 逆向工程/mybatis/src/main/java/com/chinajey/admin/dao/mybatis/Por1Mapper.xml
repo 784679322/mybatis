@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinajey.admin.dao.mapper.Por1Mapper" >
+  <resultMap id="BaseResultMap" type="com.chinajey.admin.dao.entity.Por1" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="linenum" property="linenum" jdbcType="VARCHAR" />
+    <result column="itemcode" property="itemcode" jdbcType="VARCHAR" />
+    <result column="dscripition" property="dscripition" jdbcType="VARCHAR" />
+    <result column="quantity" property="quantity" jdbcType="NUMERIC" />
+    <result column="price" property="price" jdbcType="NUMERIC" />
+    <result column="priceafvat" property="priceafvat" jdbcType="NUMERIC" />
+    <result column="sourceline" property="sourceline" jdbcType="VARCHAR" />
+    <result column="whscode" property="whscode" jdbcType="VARCHAR" />
+    <result column="manufacturer" property="manufacturer" jdbcType="VARCHAR" />
+    <result column="planprice" property="planprice" jdbcType="VARCHAR" />
+    <result column="demand" property="demand" jdbcType="VARCHAR" />
+    <result column="objtype" property="objtype" jdbcType="VARCHAR" />
+    <result column="vatgroup" property="vatgroup" jdbcType="VARCHAR" />
+    <result column="shipdate" property="shipdate" jdbcType="TIMESTAMP" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="rate" property="rate" jdbcType="NUMERIC" />
+    <result column="oporid" property="oporid" jdbcType="INTEGER" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="appid" property="appid" jdbcType="VARCHAR" />
+    <result column="whsname" property="whsname" jdbcType="VARCHAR" />
+    <result column="linetotal" property="linetotal" jdbcType="NUMERIC" />
+    <result column="vat" property="vat" jdbcType="NUMERIC" />
+    <result column="docentry" property="docentry" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, linenum, itemcode, dscripition, quantity, price, priceafvat, sourceline, whscode, 
+    manufacturer, planprice, demand, objtype, vatgroup, shipdate, currency, rate, oporid, 
+    brand, appid, whsname, linetotal, vat, docentry
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from por1
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from por1
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.chinajey.admin.dao.entity.Por1" >
+    insert into por1 (id, linenum, itemcode, 
+      dscripition, quantity, price, 
+      priceafvat, sourceline, whscode, 
+      manufacturer, planprice, demand, 
+      objtype, vatgroup, shipdate, 
+      currency, rate, oporid, 
+      brand, appid, whsname, 
+      linetotal, vat, docentry
+      )
+    values (#{id,jdbcType=INTEGER}, #{linenum,jdbcType=VARCHAR}, #{itemcode,jdbcType=VARCHAR}, 
+      #{dscripition,jdbcType=VARCHAR}, #{quantity,jdbcType=NUMERIC}, #{price,jdbcType=NUMERIC}, 
+      #{priceafvat,jdbcType=NUMERIC}, #{sourceline,jdbcType=VARCHAR}, #{whscode,jdbcType=VARCHAR}, 
+      #{manufacturer,jdbcType=VARCHAR}, #{planprice,jdbcType=VARCHAR}, #{demand,jdbcType=VARCHAR}, 
+      #{objtype,jdbcType=VARCHAR}, #{vatgroup,jdbcType=VARCHAR}, #{shipdate,jdbcType=TIMESTAMP}, 
+      #{currency,jdbcType=VARCHAR}, #{rate,jdbcType=NUMERIC}, #{oporid,jdbcType=INTEGER}, 
+      #{brand,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}, #{whsname,jdbcType=VARCHAR}, 
+      #{linetotal,jdbcType=NUMERIC}, #{vat,jdbcType=NUMERIC}, #{docentry,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chinajey.admin.dao.entity.Por1" >
+    insert into por1
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="linenum != null" >
+        linenum,
+      </if>
+      <if test="itemcode != null" >
+        itemcode,
+      </if>
+      <if test="dscripition != null" >
+        dscripition,
+      </if>
+      <if test="quantity != null" >
+        quantity,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="priceafvat != null" >
+        priceafvat,
+      </if>
+      <if test="sourceline != null" >
+        sourceline,
+      </if>
+      <if test="whscode != null" >
+        whscode,
+      </if>
+      <if test="manufacturer != null" >
+        manufacturer,
+      </if>
+      <if test="planprice != null" >
+        planprice,
+      </if>
+      <if test="demand != null" >
+        demand,
+      </if>
+      <if test="objtype != null" >
+        objtype,
+      </if>
+      <if test="vatgroup != null" >
+        vatgroup,
+      </if>
+      <if test="shipdate != null" >
+        shipdate,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="rate != null" >
+        rate,
+      </if>
+      <if test="oporid != null" >
+        oporid,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="appid != null" >
+        appid,
+      </if>
+      <if test="whsname != null" >
+        whsname,
+      </if>
+      <if test="linetotal != null" >
+        linetotal,
+      </if>
+      <if test="vat != null" >
+        vat,
+      </if>
+      <if test="docentry != null" >
+        docentry,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="linenum != null" >
+        #{linenum,jdbcType=VARCHAR},
+      </if>
+      <if test="itemcode != null" >
+        #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="dscripition != null" >
+        #{dscripition,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null" >
+        #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=NUMERIC},
+      </if>
+      <if test="priceafvat != null" >
+        #{priceafvat,jdbcType=NUMERIC},
+      </if>
+      <if test="sourceline != null" >
+        #{sourceline,jdbcType=VARCHAR},
+      </if>
+      <if test="whscode != null" >
+        #{whscode,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null" >
+        #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="planprice != null" >
+        #{planprice,jdbcType=VARCHAR},
+      </if>
+      <if test="demand != null" >
+        #{demand,jdbcType=VARCHAR},
+      </if>
+      <if test="objtype != null" >
+        #{objtype,jdbcType=VARCHAR},
+      </if>
+      <if test="vatgroup != null" >
+        #{vatgroup,jdbcType=VARCHAR},
+      </if>
+      <if test="shipdate != null" >
+        #{shipdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null" >
+        #{rate,jdbcType=NUMERIC},
+      </if>
+      <if test="oporid != null" >
+        #{oporid,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="whsname != null" >
+        #{whsname,jdbcType=VARCHAR},
+      </if>
+      <if test="linetotal != null" >
+        #{linetotal,jdbcType=NUMERIC},
+      </if>
+      <if test="vat != null" >
+        #{vat,jdbcType=NUMERIC},
+      </if>
+      <if test="docentry != null" >
+        #{docentry,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chinajey.admin.dao.entity.Por1" >
+    update por1
+    <set >
+      <if test="linenum != null" >
+        linenum = #{linenum,jdbcType=VARCHAR},
+      </if>
+      <if test="itemcode != null" >
+        itemcode = #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="dscripition != null" >
+        dscripition = #{dscripition,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null" >
+        quantity = #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=NUMERIC},
+      </if>
+      <if test="priceafvat != null" >
+        priceafvat = #{priceafvat,jdbcType=NUMERIC},
+      </if>
+      <if test="sourceline != null" >
+        sourceline = #{sourceline,jdbcType=VARCHAR},
+      </if>
+      <if test="whscode != null" >
+        whscode = #{whscode,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null" >
+        manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="planprice != null" >
+        planprice = #{planprice,jdbcType=VARCHAR},
+      </if>
+      <if test="demand != null" >
+        demand = #{demand,jdbcType=VARCHAR},
+      </if>
+      <if test="objtype != null" >
+        objtype = #{objtype,jdbcType=VARCHAR},
+      </if>
+      <if test="vatgroup != null" >
+        vatgroup = #{vatgroup,jdbcType=VARCHAR},
+      </if>
+      <if test="shipdate != null" >
+        shipdate = #{shipdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null" >
+        rate = #{rate,jdbcType=NUMERIC},
+      </if>
+      <if test="oporid != null" >
+        oporid = #{oporid,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appid = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="whsname != null" >
+        whsname = #{whsname,jdbcType=VARCHAR},
+      </if>
+      <if test="linetotal != null" >
+        linetotal = #{linetotal,jdbcType=NUMERIC},
+      </if>
+      <if test="vat != null" >
+        vat = #{vat,jdbcType=NUMERIC},
+      </if>
+      <if test="docentry != null" >
+        docentry = #{docentry,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chinajey.admin.dao.entity.Por1" >
+    update por1
+    set linenum = #{linenum,jdbcType=VARCHAR},
+      itemcode = #{itemcode,jdbcType=VARCHAR},
+      dscripition = #{dscripition,jdbcType=VARCHAR},
+      quantity = #{quantity,jdbcType=NUMERIC},
+      price = #{price,jdbcType=NUMERIC},
+      priceafvat = #{priceafvat,jdbcType=NUMERIC},
+      sourceline = #{sourceline,jdbcType=VARCHAR},
+      whscode = #{whscode,jdbcType=VARCHAR},
+      manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      planprice = #{planprice,jdbcType=VARCHAR},
+      demand = #{demand,jdbcType=VARCHAR},
+      objtype = #{objtype,jdbcType=VARCHAR},
+      vatgroup = #{vatgroup,jdbcType=VARCHAR},
+      shipdate = #{shipdate,jdbcType=TIMESTAMP},
+      currency = #{currency,jdbcType=VARCHAR},
+      rate = #{rate,jdbcType=NUMERIC},
+      oporid = #{oporid,jdbcType=INTEGER},
+      brand = #{brand,jdbcType=VARCHAR},
+      appid = #{appid,jdbcType=VARCHAR},
+      whsname = #{whsname,jdbcType=VARCHAR},
+      linetotal = #{linetotal,jdbcType=NUMERIC},
+      vat = #{vat,jdbcType=NUMERIC},
+      docentry = #{docentry,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
